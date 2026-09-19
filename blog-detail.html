@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mengenal RAG: Cara LLM Menjawab dengan Data Perusahaan — Aksara AI</title>
+  <meta name="description" content="Penjelasan Retrieval-Augmented Generation (RAG): cara kerja, manfaat, dan hal yang perlu diperhatikan saat menerapkannya pada chatbot perusahaan." />
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+
+  <style>
+    :root {
+      --ink: #10202b;
+      --gold: #c98a2c;
+      --gold-dark: #8a5c1c;
+      --gold-darker: #6b4515;
+      --paper: #faf7ef;
+      --paper-dim: #efe8d4;
+    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--paper); color: var(--ink); }
+    .breadcrumb-item a { color: var(--gold-dark); }
+    .breadcrumb-item a:hover { color: var(--gold-darker); }
+    .breadcrumb-item.active { color: var(--ink-soft, #47606d); }
+    .font-display { font-family: 'Fraunces', serif; }
+    .navbar-brand-mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: linear-gradient(155deg, var(--ink), #24404f);
+      color: #f1ddb0; display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', serif; font-weight: 700;
+    }
+    .navbar { background: rgba(250,247,239,.92) !important; backdrop-filter: blur(8px); border-bottom: 1px solid #ddd3ba; }
+    .btn-gold { background-color: var(--gold-dark); border-color: var(--gold-dark); color: #fff; }
+    .btn-gold:hover { background-color: var(--gold-darker); border-color: var(--gold-darker); color: #fff; }
+
+    .cover-wrap { max-height: 420px; overflow: hidden; border-radius: 18px; }
+    .cover-wrap img { width: 100%; object-fit: cover; height: 100%; }
+
+    article.post p { font-size: 1.05rem; line-height: 1.8; color: #2c3d47; }
+    article.post blockquote {
+      border-left: 4px solid var(--gold);
+      background: var(--paper-dim);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 12px 12px 0;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--ink);
+    }
+    .related-card { border-color: #e7e0cc; border-radius: 14px; transition: transform .25s ease, box-shadow .25s ease; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px -18px rgba(16,32,43,.4); }
+    .avatar-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--paper-dim); color: var(--gold-dark);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    footer.site-footer { background: var(--ink); color: #c7d3d8; }
+    footer.site-footer a { color: #eae2c8; }
+    footer.site-footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+  <nav class="navbar navbar-expand-lg sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 font-display fw-bold" href="/">
+        <span class="navbar-brand-mark">A</span> Aksara AI
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMain">
+        <ul class="navbar-nav align-items-lg-center gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+          <li class="nav-item"><a class="btn btn-gold rounded-pill px-3" href="index.html#kontak">Konsultasi</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-5">
+    <div class="container" style="max-width: 900px;">
+
+      <!-- Breadcrumb & meta -->
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Beranda</a></li>
+          <li class="breadcrumb-item"><a href="blog.html" class="text-decoration-none">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">RAG untuk LLM</li>
+        </ol>
+      </nav>
+
+      <span class="badge rounded-pill px-3 py-2 mb-3" style="background:#efe8d4; color:#8a5c1c;">
+        <i class="bi bi-stars me-1"></i> Generative AI
+      </span>
+
+      <h1 class="font-display fw-bold display-6 mb-3">Mengenal RAG: Cara LLM Menjawab dengan Data Perusahaan</h1>
+
+      <div class="d-flex flex-wrap align-items-center gap-4 text-muted small mb-4 pb-3 border-bottom">
+        <span><i class="bi bi-person-circle me-1"></i> Dinda Ayu</span>
+        <span><i class="bi bi-calendar3 me-1"></i> 12 Maret 2026</span>
+        <span><i class="bi bi-clock me-1"></i> 6 menit baca</span>
+        <span><i class="bi bi-tag me-1"></i> LLM, RAG, Chatbot</span>
+      </div>
+
+      <div class="cover-wrap mb-4">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" alt="Ilustrasi jaringan generative AI">
+      </div>
+
+      <article class="post">
+        <p>
+          Banyak perusahaan mulai memakai chatbot berbasis Large Language Model (LLM)
+          untuk menjawab pertanyaan pelanggan maupun karyawan internal. Masalahnya,
+          LLM hanya mengenal informasi umum dari data pelatihannya, sehingga sering
+          tidak tahu kebijakan cuti terbaru, katalog produk yang baru diperbarui,
+          atau detail kontrak yang sifatnya spesifik untuk perusahaan tersebut.
+          Retrieval-Augmented Generation (RAG) hadir untuk menutup celah ini.
+        </p>
+
+        <p>
+          Secara sederhana, RAG bekerja dengan dua langkah utama. Pertama, sistem
+          mencari potongan dokumen yang paling relevan dengan pertanyaan pengguna
+          dari basis pengetahuan perusahaan — bisa berupa SOP, FAQ, atau katalog
+          produk yang sudah diubah menjadi representasi vektor. Kedua, potongan
+          dokumen tersebut disisipkan ke dalam prompt sebagai konteks tambahan
+          sebelum LLM menyusun jawaban akhir. Dengan begitu, jawaban yang dihasilkan
+          didasarkan pada data yang benar-benar dimiliki perusahaan, bukan sekadar
+          tebakan dari pengetahuan umum model.
+        </p>
+
+        <blockquote>
+          "RAG tidak membuat model menjadi lebih pintar secara instan — RAG membuat
+          model punya akses ke sumber informasi yang tepat pada saat yang tepat."
+        </blockquote>
+
+        <p>
+          Pendekatan ini juga memudahkan proses pembaruan pengetahuan. Ketika ada
+          kebijakan baru atau produk baru, tim cukup memperbarui basis dokumen
+          tanpa perlu melatih ulang model dari awal. Hal ini membuat RAG menjadi
+          pilihan yang jauh lebih murah dan cepat dibandingkan fine-tuning penuh,
+          terutama untuk perusahaan yang informasinya sering berubah.
+        </p>
+
+        <h2 class="h4 fw-bold mt-4 mb-3">Beberapa hal yang perlu diperhatikan</h2>
+        <ul class="mb-4">
+          <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Kualitas jawaban RAG sangat bergantung pada kualitas dan kerapian dokumen sumber.</li>
+          <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Ukuran potongan dokumen (chunk) perlu diuji agar tidak terlalu pendek atau terlalu panjang.</li>
+          <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Perlu mekanisme untuk menandai jika sistem tidak menemukan dokumen relevan, agar chatbot tidak mengarang jawaban.</li>
+        </ul>
+
+        <div class="alert d-flex align-items-start gap-2" style="background:#efe8d4; border: none; color:#10202b;">
+          <i class="bi bi-info-circle-fill fs-5" style="color:#8a5c1c;"></i>
+          <div>
+            <strong>Catatan:</strong> RAG bukan solusi ajaib untuk semua kebutuhan AI.
+            Untuk tugas yang membutuhkan penalaran kompleks di luar pencarian dokumen,
+            kombinasi RAG dengan agen atau alat tambahan biasanya diperlukan.
+          </div>
+        </div>
+
+        <p>
+          Bagi perusahaan yang baru memulai, langkah paling praktis adalah menguji
+          RAG pada satu use case kecil terlebih dahulu — misalnya menjawab pertanyaan
+          seputar SOP internal — sebelum memperluasnya ke seluruh basis pengetahuan
+          perusahaan.
+        </p>
+      </article>
+
+      <!-- =====================================================
+           ARTIKEL TERKAIT
+      ====================================================== -->
+      <section class="mt-5 pt-4 border-top">
+        <h2 class="h5 fw-bold mb-3"><i class="bi bi-collection me-2"></i>Artikel terkait</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <a href="blog-detail.html" class="text-decoration-none text-dark">
+              <div class="related-card card p-3 h-100">
+                <span class="badge rounded-pill mb-2" style="background:#efe8d4; color:#8a5c1c;">Prompt Engineering</span>
+                <h3 class="h6 fw-bold mb-0">5 Pola Prompt yang Membuat Chatbot Lebih Konsisten</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a href="blog-detail.html" class="text-decoration-none text-dark">
+              <div class="related-card card p-3 h-100">
+                <span class="badge rounded-pill mb-2" style="background:#efe8d4; color:#8a5c1c;">Tools</span>
+                <h3 class="h6 fw-bold mb-0">Memulai MLOps: Dari Notebook ke Sistem Produksi</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           KOMENTAR
+      ====================================================== -->
+      <section class="mt-5 pt-4 border-top">
+        <h2 class="h5 fw-bold mb-3"><i class="bi bi-chat-left-text me-2"></i>Diskusi (2)</h2>
+
+        <div class="d-flex gap-3 mb-4">
+          <span class="avatar-icon"><i class="bi bi-person-fill"></i></span>
+          <div class="flex-grow-1 bg-white border rounded-3 p-3">
+            <div class="d-flex justify-content-between">
+              <strong class="small">Fajar Nugroho</strong>
+              <span class="text-muted small">2 hari lalu</span>
+            </div>
+            <p class="small mb-0 mt-1">Penjelasan chunking-nya membantu banget, kebetulan tim kami lagi coba bangun internal knowledge base.</p>
+          </div>
+        </div>
+
+        <div class="d-flex gap-3 mb-4">
+          <span class="avatar-icon"><i class="bi bi-person-fill"></i></span>
+          <div class="flex-grow-1 bg-white border rounded-3 p-3">
+            <div class="d-flex justify-content-between">
+              <strong class="small">Sari Wulandari</strong>
+              <span class="text-muted small">5 hari lalu</span>
+            </div>
+            <p class="small mb-0 mt-1">Ada rencana bahas evaluasi kualitas RAG di artikel berikutnya? Penasaran cara mengukur relevansinya.</p>
+          </div>
+        </div>
+
+        <form class="d-flex gap-3" action="#" method="post">
+          <span class="avatar-icon"><i class="bi bi-person"></i></span>
+          <div class="flex-grow-1">
+            <textarea class="form-control mb-2" rows="3" placeholder="Tulis komentar Anda..." required></textarea>
+            <button type="submit" class="btn btn-gold btn-sm rounded-pill px-3">
+              <i class="bi bi-send me-1"></i> Kirim Komentar
+            </button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer py-5 mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-4">
+      <div>
+        <p class="fs-5 font-display fw-bold text-white mb-2"><i class="bi bi-braces-asterisk"></i> Aksara AI</p>
+        <p class="small mb-0" style="max-width: 26rem;">Studio kecerdasan buatan terapan untuk bisnis di Indonesia.</p>
+      </div>
+      <div class="d-flex flex-wrap gap-4 small">
+        <a href="/" class="text-decoration-none">Beranda</a>
+        <a href="blog.html" class="text-decoration-none">Blog</a>
+        <a href="cv.html" class="text-decoration-none">CV</a>
+        <a href="index.html#kontak" class="text-decoration-none">Kontak</a>
+      </div>
+    </div>
+    <div class="container mt-4 pt-3 border-top border-secondary-subtle small text-center text-md-start">
+      © 2026 Aksara AI. Dibuat untuk keperluan praktikum PABWE.
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

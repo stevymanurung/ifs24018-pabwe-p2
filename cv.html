@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV — Nama Mahasiswa</title>
+  <meta name="description" content="Curriculum Vitae Nama Mahasiswa — mahasiswa Sistem Informasi dengan minat pada pengembangan web dan kecerdasan buatan." />
+
+  <!-- Tailwind CSS 4 Play CDN engine, di-self-host (sama persis, tanpa dependensi jaringan eksternal) -->
+  <script src="vendor/tailwind/tailwind-browser.js"></script>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <!-- Tabler Icons (self-hosted) -->
+  <link rel="stylesheet" href="vendor/tabler-icons/tabler-icons.min.css">
+
+  <style type="text/tailwindcss">
+    @theme {
+      --font-display: "Fraunces", serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+
+      --color-ink: #10202b;
+      --color-ink-soft: #47606d;
+      --color-brand: #8a5c1c;
+      --color-brand-light: #c98a2c;
+      --color-paper: #faf7ef;
+      --color-paper-dim: #efe8d4;
+    }
+
+    body { font-family: var(--font-sans); }
+    .font-display { font-family: var(--font-display); }
+  </style>
+</head>
+<body class="bg-paper text-ink">
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+  <header class="sticky top-0 z-40 border-b border-black/10 bg-paper/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <a href="/" class="flex items-center gap-2 font-display text-lg font-bold">
+        <span class="grid h-8 w-8 place-items-center rounded-lg bg-ink text-sm text-paper-dim">A</span>
+        Aksara AI
+      </a>
+      <div class="flex items-center gap-6 text-sm font-semibold">
+        <a href="/" class="hidden hover:text-brand sm:inline">Beranda</a>
+        <a href="blog.html" class="hidden hover:text-brand sm:inline">Blog</a>
+        <a href="cv.html" class="text-brand">CV</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-10 sm:py-14">
+
+    <!-- =====================================================
+         HEADER PROFIL
+    ====================================================== -->
+    <section class="flex flex-col items-center gap-6 rounded-3xl bg-ink px-6 py-10 text-center text-paper sm:flex-row sm:text-left">
+      <img
+        src="https://api.dicebear.com/9.x/notionists/svg?seed=aksara-cv&backgroundColor=efe8d4"
+        alt="Foto profil"
+        class="h-28 w-28 shrink-0 rounded-2xl border-2 border-brand-light/60 bg-paper-dim object-cover sm:h-32 sm:w-32"
+      />
+      <div class="flex-1">
+        <h1 class="font-display text-3xl font-bold sm:text-4xl">Nama Mahasiswa</h1>
+        <p class="mt-1 text-brand-light">Aspiring AI Engineer &middot; Full-Stack Developer</p>
+        <div class="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-paper-dim sm:justify-start">
+          <span class="flex items-center gap-1.5"><i class="ti ti-mail"></i> nama.mahasiswa@email.com</span>
+          <span class="flex items-center gap-1.5"><i class="ti ti-phone"></i> +62 812-0000-0000</span>
+          <span class="flex items-center gap-1.5"><i class="ti ti-map-pin"></i> Bandung, Indonesia</span>
+          <a href="#" class="flex items-center gap-1.5 hover:text-white"><i class="ti ti-brand-github"></i> github.com/username</a>
+          <a href="#" class="flex items-center gap-1.5 hover:text-white"><i class="ti ti-brand-linkedin"></i> linkedin.com/in/username</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="mt-10 grid gap-10 md:grid-cols-3">
+
+      <!-- =====================================================
+           KOLOM KIRI
+      ====================================================== -->
+      <div class="space-y-10 md:col-span-2">
+
+        <!-- Tentang -->
+        <section>
+          <h2 class="mb-3 flex items-center gap-2 font-display text-xl font-bold text-ink">
+            <i class="ti ti-user text-brand"></i> Tentang Saya
+          </h2>
+          <p class="text-ink-soft leading-relaxed">
+            Mahasiswa Sistem Informasi dengan minat besar pada pengembangan web dan
+            penerapan kecerdasan buatan untuk menyelesaikan masalah nyata. Terbiasa
+            bekerja dengan HTML, CSS, dan JavaScript, serta sedang memperdalam
+            integrasi model AI ke dalam aplikasi web melalui proyek kuliah dan
+            eksperimen pribadi.
+          </p>
+        </section>
+
+        <!-- Pengalaman -->
+        <section>
+          <h2 class="mb-4 flex items-center gap-2 font-display text-xl font-bold text-ink">
+            <i class="ti ti-briefcase text-brand"></i> Pengalaman
+          </h2>
+          <div class="space-y-6">
+            <div class="relative border-l-2 border-paper-dim pl-5">
+              <span class="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-brand-light"></span>
+              <p class="text-xs font-semibold text-brand">2025 — Sekarang</p>
+              <h3 class="font-bold">Asisten Praktikum, Pemrograman Aplikasi Berbasis Web</h3>
+              <p class="text-sm text-ink-soft">Membantu mahasiswa memahami HTML, CSS, Bootstrap, dan Tailwind melalui sesi praktikum mingguan.</p>
+            </div>
+            <div class="relative border-l-2 border-paper-dim pl-5">
+              <span class="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-brand-light"></span>
+              <p class="text-xs font-semibold text-brand">2024 — 2025</p>
+              <h3 class="font-bold">Magang Front-End Developer, Startup Lokal</h3>
+              <p class="text-sm text-ink-soft">Membangun antarmuka landing page dan dashboard internal menggunakan HTML, CSS, dan JavaScript.</p>
+            </div>
+            <div class="relative border-l-2 border-paper-dim pl-5">
+              <span class="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-brand-light"></span>
+              <p class="text-xs font-semibold text-brand">2023 — 2024</p>
+              <h3 class="font-bold">Anggota Divisi IT, Himpunan Mahasiswa</h3>
+              <p class="text-sm text-ink-soft">Mengelola dan memperbarui situs organisasi serta materi publikasi digital.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proyek -->
+        <section>
+          <h2 class="mb-4 flex items-center gap-2 font-display text-xl font-bold text-ink">
+            <i class="ti ti-folder-code text-brand"></i> Proyek / Portfolio
+          </h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <a href="/" class="group block rounded-2xl border border-paper-dim bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <i class="ti ti-brand-html5 text-2xl text-brand"></i>
+              <h3 class="mt-2 font-bold">Landing Page Aksara AI</h3>
+              <p class="mt-1 text-sm text-ink-soft">Landing page perusahaan jasa AI dibangun dengan HTML &amp; CSS murni.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand group-hover:gap-2">
+                Lihat proyek <i class="ti ti-arrow-narrow-right transition-all"></i>
+              </span>
+            </a>
+            <a href="blog.html" class="group block rounded-2xl border border-paper-dim bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <i class="ti ti-brand-bootstrap text-2xl text-brand"></i>
+              <h3 class="mt-2 font-bold">Blog Aksara AI</h3>
+              <p class="mt-1 text-sm text-ink-soft">Daftar &amp; detail artikel seputar AI dibangun dengan Bootstrap 5 dan Bootstrap Icons.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand group-hover:gap-2">
+                Lihat proyek <i class="ti ti-arrow-narrow-right transition-all"></i>
+              </span>
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- =====================================================
+           KOLOM KANAN
+      ====================================================== -->
+      <div class="space-y-10">
+
+        <!-- Pendidikan -->
+        <section>
+          <h2 class="mb-4 flex items-center gap-2 font-display text-xl font-bold text-ink">
+            <i class="ti ti-school text-brand"></i> Pendidikan
+          </h2>
+          <div class="space-y-4 text-sm">
+            <div>
+              <p class="font-bold">S1 Sistem Informasi</p>
+              <p class="text-ink-soft">Institut Teknologi Del &middot; 2023 — Sekarang</p>
+            </div>
+            <div>
+              <p class="font-bold">SMA Negeri 1</p>
+              <p class="text-ink-soft">Jurusan MIPA &middot; 2020 — 2023</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Keahlian -->
+        <section>
+          <h2 class="mb-4 flex items-center gap-2 font-display text-xl font-bold text-ink">
+            <i class="ti ti-tools text-brand"></i> Keahlian
+          </h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">HTML5</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">CSS3</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Bootstrap 5</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Tailwind CSS</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">JavaScript</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Git &amp; GitHub</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Figma</span>
+          </div>
+        </section>
+
+        <!-- Sertifikat -->
+        <section>
+          <h2 class="mb-4 flex items-center gap-2 font-display text-xl font-bold text-ink">
+            <i class="ti ti-certificate text-brand"></i> Sertifikat
+          </h2>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-2">
+              <i class="ti ti-award mt-0.5 text-brand-light"></i>
+              <span>Belajar Dasar Pemrograman Web — Dicoding (2024)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="ti ti-award mt-0.5 text-brand-light"></i>
+              <span>Fundamental Front-End Web Development (2025)</span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="mt-6 border-t border-black/10 py-8 text-center text-sm text-ink-soft">
+    © 2026 Nama Mahasiswa &middot; Dibuat dengan Tailwind CSS 4 untuk keperluan praktikum PABWE
+  </footer>
+
+</body>
+</html>
+
