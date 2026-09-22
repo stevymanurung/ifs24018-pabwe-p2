@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — Nama Mahasiswa</title>
-  <meta name="description" content="Curriculum Vitae Nama Mahasiswa — mahasiswa Sistem Informasi dengan minat pada pengembangan web dan kecerdasan buatan." />
+  <title>CV — Stiy (11S24018) | Aksara AI</title>
+  <meta name="description" content="Curriculum Vitae Stiy (11S24018) — mahasiswa Sistem Informasi Institut Teknologi Del dengan minat pada pengembangan web dan kecerdasan buatan." />
 
   <!-- Tailwind CSS 4 Play CDN engine, di-self-host (sama persis, tanpa dependensi jaringan eksternal) -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <script src="vendor/tailwind/tailwind-browser.js"></script>
   <link rel="stylesheet" href="assets/css/fonts.css">
   <!-- Tabler Icons (self-hosted) -->
@@ -36,14 +37,15 @@
   ====================================================== -->
   <header class="sticky top-0 z-40 border-b border-black/10 bg-paper/90 backdrop-blur">
     <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-      <a href="/" class="flex items-center gap-2 font-display text-lg font-bold">
+      <a href="index.html" class="flex items-center gap-2 font-display text-lg font-bold">
         <span class="grid h-8 w-8 place-items-center rounded-lg bg-ink text-sm text-paper-dim">A</span>
         Aksara AI
       </a>
-      <div class="flex items-center gap-6 text-sm font-semibold">
-        <a href="/" class="hidden hover:text-brand sm:inline">Beranda</a>
-        <a href="blog.html" class="hidden hover:text-brand sm:inline">Blog</a>
-        <a href="cv.html" class="text-brand">CV</a>
+      <!-- Navigasi antar halaman — tetap tampil di mobile maupun desktop -->
+      <div class="flex items-center gap-4 text-sm font-semibold sm:gap-6">
+        <a href="index.html" class="transition hover:text-brand">Beranda</a>
+        <a href="blog.html" class="transition hover:text-brand">Blog</a>
+        <a href="cv.html" class="text-brand" aria-current="page">CV</a>
       </div>
     </nav>
   </header>
@@ -54,20 +56,25 @@
          HEADER PROFIL
     ====================================================== -->
     <section class="flex flex-col items-center gap-6 rounded-3xl bg-ink px-6 py-10 text-center text-paper sm:flex-row sm:text-left">
+      <!-- Avatar lokal (assets/img) — ganti dengan pas foto pribadi bila ada -->
       <img
-        src="https://api.dicebear.com/9.x/notionists/svg?seed=aksara-cv&backgroundColor=efe8d4"
-        alt="Foto profil"
+        src="assets/img/avatar-cv.svg"
+        alt="Foto profil Stiy"
         class="h-28 w-28 shrink-0 rounded-2xl border-2 border-brand-light/60 bg-paper-dim object-cover sm:h-32 sm:w-32"
       />
       <div class="flex-1">
-        <h1 class="font-display text-3xl font-bold sm:text-4xl">Nama Mahasiswa</h1>
-        <p class="mt-1 text-brand-light">Aspiring AI Engineer &middot; Full-Stack Developer</p>
+        <!-- GANTI: nama lengkap sesuai KTM bila berbeda -->
+        <h1 class="font-display text-3xl font-bold sm:text-4xl">Stevy Dwi Fernanda Manurung</h1>
+        <p class="mt-1 text-brand-light">Mahasiswa Informatika &middot; Web &amp; Applied AI Enthusiast</p>
+        <p class="mt-1 text-sm text-paper-dim">NIM 11S24018 &middot; Institut Teknologi Del</p>
         <div class="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-paper-dim sm:justify-start">
-          <span class="flex items-center gap-1.5"><i class="ti ti-mail"></i> nama.mahasiswa@email.com</span>
-          <span class="flex items-center gap-1.5"><i class="ti ti-phone"></i> +62 812-0000-0000</span>
-          <span class="flex items-center gap-1.5"><i class="ti ti-map-pin"></i> Bandung, Indonesia</span>
-          <a href="#" class="flex items-center gap-1.5 hover:text-white"><i class="ti ti-brand-github"></i> github.com/username</a>
-          <a href="#" class="flex items-center gap-1.5 hover:text-white"><i class="ti ti-brand-linkedin"></i> linkedin.com/in/username</a>
+          <a href="mailto:ifs24018@students.del.ac.id" class="flex items-center gap-1.5 hover:text-white"><i class="ti ti-mail"></i> ifs24018@students.del.ac.id</a>
+          <!-- GANTI: nomor WhatsApp aktif -->
+          <span class="flex items-center gap-1.5"><i class="ti ti-phone"></i> +62 812-6482-2969</span>
+          <span class="flex items-center gap-1.5"><i class="ti ti-map-pin"></i> Balige, Toba, Sumatera Utara</span>
+          <!-- GANTI: URL GitHub &amp; LinkedIn milikmu -->
+          <a href="https://github.com/" class="flex items-center gap-1.5 hover:text-white"><i class="ti ti-brand-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/" class="flex items-center gap-1.5 hover:text-white"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
         </div>
       </div>
     </section>
@@ -85,11 +92,12 @@
             <i class="ti ti-user text-brand"></i> Tentang Saya
           </h2>
           <p class="text-ink-soft leading-relaxed">
-            Mahasiswa Sistem Informasi dengan minat besar pada pengembangan web dan
-            penerapan kecerdasan buatan untuk menyelesaikan masalah nyata. Terbiasa
-            bekerja dengan HTML, CSS, dan JavaScript, serta sedang memperdalam
-            integrasi model AI ke dalam aplikasi web melalui proyek kuliah dan
-            eksperimen pribadi.
+            Mahasiswa Sistem Informasi Institut Teknologi Del dengan minat besar pada
+            pengembangan web dan penerapan kecerdasan buatan untuk menyelesaikan masalah
+            nyata di sekitar. Terbiasa bekerja dengan HTML, CSS, JavaScript, Bootstrap,
+            dan Tailwind CSS. Aktif di proyek berbasis tim melalui program kompetisi
+            kampus seperti P2MW dan GEMASTIK, dengan fokus pada solusi digital bertema
+            sosial dan lingkungan.
           </p>
         </section>
 
@@ -102,20 +110,31 @@
             <div class="relative border-l-2 border-paper-dim pl-5">
               <span class="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-brand-light"></span>
               <p class="text-xs font-semibold text-brand">2025 — Sekarang</p>
-              <h3 class="font-bold">Asisten Praktikum, Pemrograman Aplikasi Berbasis Web</h3>
-              <p class="text-sm text-ink-soft">Membantu mahasiswa memahami HTML, CSS, Bootstrap, dan Tailwind melalui sesi praktikum mingguan.</p>
+              <h3 class="font-bold">Anggota Tim TIRA — Program P2MW</h3>
+              <p class="text-sm text-ink-soft">
+                Mengembangkan TIRA (Toba Interactive Recycle App), aplikasi web pengelolaan
+                sampah plastik di kawasan Danau Toba, termasuk penyiapan materi promosi dan
+                identitas visual produk.
+              </p>
             </div>
             <div class="relative border-l-2 border-paper-dim pl-5">
               <span class="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-brand-light"></span>
-              <p class="text-xs font-semibold text-brand">2024 — 2025</p>
-              <h3 class="font-bold">Magang Front-End Developer, Startup Lokal</h3>
-              <p class="text-sm text-ink-soft">Membangun antarmuka landing page dan dashboard internal menggunakan HTML, CSS, dan JavaScript.</p>
+              <p class="text-xs font-semibold text-brand">2025</p>
+              <h3 class="font-bold">Anggota Tim TRANSIT-HUB — GEMASTIK (Smart City)</h3>
+              <p class="text-sm text-ink-soft">
+                Menyusun proposal sistem transportasi publik cerdas untuk Kota Medan:
+                arsitektur teknologi, alur proses bisnis, roadmap pengembangan, dan
+                proyeksi dampak.
+              </p>
             </div>
             <div class="relative border-l-2 border-paper-dim pl-5">
               <span class="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-brand-light"></span>
-              <p class="text-xs font-semibold text-brand">2023 — 2024</p>
-              <h3 class="font-bold">Anggota Divisi IT, Himpunan Mahasiswa</h3>
-              <p class="text-sm text-ink-soft">Mengelola dan memperbarui situs organisasi serta materi publikasi digital.</p>
+              <p class="text-xs font-semibold text-brand">2024 — Sekarang</p>
+              <h3 class="font-bold">Proyek Praktikum Pemrograman Web (PABWE)</h3>
+              <p class="text-sm text-ink-soft">
+                Membangun website multi-halaman dengan tiga pendekatan styling berbeda:
+                CSS murni, Bootstrap 5, dan Tailwind CSS 4.
+              </p>
             </div>
           </div>
         </section>
@@ -126,7 +145,7 @@
             <i class="ti ti-folder-code text-brand"></i> Proyek / Portfolio
           </h2>
           <div class="grid gap-4 sm:grid-cols-2">
-            <a href="/" class="group block rounded-2xl border border-paper-dim bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <a href="index.html" class="group block rounded-2xl border border-paper-dim bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
               <i class="ti ti-brand-html5 text-2xl text-brand"></i>
               <h3 class="mt-2 font-bold">Landing Page Aksara AI</h3>
               <p class="mt-1 text-sm text-ink-soft">Landing page perusahaan jasa AI dibangun dengan HTML &amp; CSS murni.</p>
@@ -142,6 +161,24 @@
                 Lihat proyek <i class="ti ti-arrow-narrow-right transition-all"></i>
               </span>
             </a>
+
+            <!-- Proyek di luar repo ini (tanpa tautan publik) -->
+            <div class="rounded-2xl border border-paper-dim bg-white p-5 shadow-sm">
+              <i class="ti ti-recycle text-2xl text-brand"></i>
+              <h3 class="mt-2 font-bold">TIRA — Toba Interactive Recycle App</h3>
+              <p class="mt-1 text-sm text-ink-soft">
+                Aplikasi web pengelolaan sampah plastik di kawasan Danau Toba dengan
+                sistem reward dan fitur berbasis budaya lokal. Program P2MW.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-paper-dim bg-white p-5 shadow-sm">
+              <i class="ti ti-bus text-2xl text-brand"></i>
+              <h3 class="mt-2 font-bold">TRANSIT-HUB</h3>
+              <p class="mt-1 text-sm text-ink-soft">
+                Rancangan sistem transportasi publik cerdas Kota Medan dengan pelacakan
+                GPS real-time dan mekanisme insentif hijau. Proposal GEMASTIK.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -160,11 +197,15 @@
           <div class="space-y-4 text-sm">
             <div>
               <p class="font-bold">S1 Sistem Informasi</p>
-              <p class="text-ink-soft">Institut Teknologi Del &middot; 2023 — Sekarang</p>
+              <p class="text-ink-soft">Institut Teknologi Del &middot; 2024 — Sekarang</p>
+              <p class="mt-1 text-xs text-ink-soft">
+                Fokus: pengembangan aplikasi web, basis data, dan analisis sistem.
+              </p>
             </div>
             <div>
-              <p class="font-bold">SMA Negeri 1</p>
-              <p class="text-ink-soft">Jurusan MIPA &middot; 2020 — 2023</p>
+              <!-- GANTI: nama SMA &amp; tahun sesuai riwayat pribadi -->
+              <p class="font-bold">SMA / SMK</p>
+              <p class="text-ink-soft">Jurusan MIPA &middot; 2021 — 2024</p>
             </div>
           </div>
         </section>
@@ -182,6 +223,8 @@
             <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">JavaScript</span>
             <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Git &amp; GitHub</span>
             <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Figma</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Responsive Design</span>
+            <span class="rounded-full bg-paper-dim px-3 py-1 text-xs font-semibold text-ink">Semantic HTML</span>
           </div>
         </section>
 
@@ -210,9 +253,14 @@
        FOOTER
   ====================================================== -->
   <footer class="mt-6 border-t border-black/10 py-8 text-center text-sm text-ink-soft">
-    © 2026 Nama Mahasiswa &middot; Dibuat dengan Tailwind CSS 4 untuk keperluan praktikum PABWE
+    <nav class="mb-3 flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold">
+      <a href="index.html" class="transition hover:text-brand">Beranda</a>
+      <a href="blog.html" class="transition hover:text-brand">Blog</a>
+      <a href="blog-detail.html" class="transition hover:text-brand">Artikel</a>
+      <a href="index.html#kontak" class="transition hover:text-brand">Kontak</a>
+    </nav>
+    <p>© 2026 Stiy (11S24018) &middot; Dibuat dengan Tailwind CSS 4 untuk keperluan praktikum PABWE</p>
   </footer>
 
 </body>
 </html>
-

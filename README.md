@@ -1,83 +1,100 @@
-# {username-kamu}-pabwe-p2 — Aksara AI
+# 11S24018-pabwe-p2 — Aksara AI
 
-Studi kasus Praktikum 2 (PABWE): landing page, blog, dan CV untuk perusahaan
-fiktif jasa AI bernama **Aksara AI**.
+Studi Kasus Praktikum 2 PABWE 2026 (CSS, Bootstrap 5 & Tailwind CSS 4).
+Website multi-halaman untuk perusahaan jasa AI fiktif bernama **Aksara AI**.
+
+Semua halaman saling terhubung, identitas brand konsisten, dan setiap halaman
+memakai **satu** pendekatan styling sesuai ketentuan soal.
 
 ## Struktur proyek
 
 ```
-├── index.html              # Landing page (HTML + CSS murni)
-├── blog.html                # Daftar blog (Bootstrap 5 + Bootstrap Icons)
-├── blog-detail.html         # Detail blog (Bootstrap 5 + Bootstrap Icons)
-├── cv.html                   # CV digital (Tailwind CSS 4)
+11S24018-pabwe-p2/
+├── index.html               # Landing page — HTML + CSS murni (tanpa framework)
+├── blog.html                # Daftar blog — Bootstrap 5 + Bootstrap Icons
+├── blog-detail.html         # Detail artikel — Bootstrap 5 + Bootstrap Icons
+├── cv.html                  # Curriculum Vitae — Tailwind CSS 4
 ├── assets/
 │   ├── css/
-│   │   ├── style.css         # External CSS untuk index.html
-│   │   └── fonts.css         # Google Fonts (Fraunces & Plus Jakarta Sans), self-hosted
-│   ├── fonts/                 # File .woff2 font, subset Latin saja
-│   └── img/                    # (opsional, belum dipakai)
-├── vendor/                     # Bootstrap, Bootstrap Icons, Tabler Icons, Tailwind — SEMUA SELF-HOSTED
-├── _redirects                  # Aturan Netlify: /index di-rewrite (200) ke index.html, bukan redirect
+│   │   ├── style.css        # External CSS, khusus untuk index.html
+│   │   └── fonts.css        # @font-face Fraunces & Plus Jakarta Sans
+│   ├── fonts/               # File .woff2 (subset latin)
+│   └── img/                 # Cover artikel, avatar CV, favicon (SVG lokal)
+├── vendor/                  # Bootstrap 5, Bootstrap Icons, Tabler Icons, Tailwind 4
 └── README.md
 ```
 
-**Penting:** semua library (Bootstrap, Bootstrap Icons, Tabler Icons, Tailwind
-CSS 4 Play CDN, Google Fonts) sudah di-*self-host* jadi file lokal di folder
-`vendor/` dan `assets/`. Tidak ada satupun `<link>`/`<script>` yang menunjuk ke
-CDN eksternal lagi. Ini dilakukan karena banyak sandbox/runner audit otomatis
-(termasuk yang dipakai tool penilaian kampus) memblokir domain CDN pihak
-ketiga, yang bisa membuat Lighthouse gagal total memuat halaman dan
-melaporkan skor 0 di semua kategori — padahal halamannya sendiri sebenarnya
-baik-baik saja.
+## Pembagian teknologi per halaman
 
-## ⚠️ Kalau skor audit masih 0 — cek cara deploy-nya
+| Halaman | Teknologi styling | Catatan |
+|---|---|---|
+| `index.html` | HTML + CSS murni | Wajib `assets/css/style.css`, tanpa Bootstrap/Tailwind |
+| `blog.html` | Bootstrap 5 + Bootstrap Icons | CSS custom tipis di `<style>` untuk warna brand |
+| `blog-detail.html` | Bootstrap 5 + Bootstrap Icons | Sama seperti `blog.html` |
+| `cv.html` | Tailwind CSS 4 | Token warna brand lewat `@theme`, ikon Tabler |
 
-Skor Lighthouse 0 di **semua** kategori sekaligus (Performance, Accessibility,
-Best Practices, SEO) biasanya bukan berarti halamannya jelek — itu tanda
-Lighthouse **gagal memuat halaman sama sekali**. Dua penyebab paling umum:
+Library tidak diambil dari CDN melainkan **di-self-host** di folder `vendor/`
+dan `assets/fonts/`. Isinya identik dengan versi CDN (Bootstrap 5.3, Tailwind
+Play CDN `@tailwindcss/browser@4`), hanya lokasinya lokal — sehingga halaman
+tetap tampil benar walau dibuka offline atau lewat `file://`.
 
-1. **Folder ter-upload sebagai subfolder di Netlify.** Kalau kamu drag folder
-   bernama `project` (atau nama lain) ke Netlify Drop, isinya bisa berakhir di
-   `/project/index.html`, bukan di root (`/index.html`). Root domain jadi 404.
-   **Solusi:** buka/extract folder ini dulu, lalu drag-drop **isi filenya**
-   (`index.html`, `blog.html`, dst. beserta folder `assets/` dan `vendor/`
-   langsung terlihat), bukan foldernya sendiri.
-2. **Cek langsung di browser** apakah `https://ifs24018-p2.netlify.app`
-   benar-benar menampilkan landing page-nya, bukan halaman "Page not found"
-   bawaan Netlify. Kalau masih 404, redeploy dengan cara di atas.
+## Yang dipenuhi dari ketentuan soal
 
-Setelah redeploy, tunggu 1–2 menit lalu jalankan ulang audit-nya.
+**index.html** — navbar dengan link in-page (`#layanan`, `#tentang`, `#kontak`)
+plus link ke `blog.html` dan `cv.html`, hero + CTA, 4 card layanan AI, section
+tentang, form kontak (nama, email, pesan), dan footer. Memakai CSS variables,
+Flexbox, CSS Grid, hover/transition, serta `@media` di 3 breakpoint. Menu
+mobile dibuat dengan teknik checkbox (tanpa JavaScript).
 
-## Yang perlu kamu sesuaikan sebelum dikumpulkan
+**blog.html** — 6 artikel bertema AI. Tiap card menampilkan cover, badge
+kategori berikon, judul yang mengarah ke `blog-detail.html`, ringkasan singkat,
+serta penulis/tanggal/durasi baca dengan Bootstrap Icons (`bi-person`,
+`bi-calendar3`, `bi-clock`). Memakai navbar, container, row, `col-*`, card,
+badge, pagination, dan footer bawaan Bootstrap.
 
-- **Ganti nama folder** menjadi `{username-kamu}-pabwe-p2`, misalnya `ifs24018-pabwe-p2`.
-- **cv.html**: ganti "Nama Mahasiswa", email, nomor telepon, riwayat pendidikan,
-  pengalaman, dan link GitHub/LinkedIn dengan data kamu sendiri.
-- **Nama & tema perusahaan** ("Aksara AI") boleh diganti bebas sesuai selera,
-  asal konsisten di semua halaman (index.html, blog.html, blog-detail.html).
-- Foto profil CV memakai avatar generator (dicebear.com, via URL eksternal)
-  sebagai placeholder — boleh diganti foto asli, taruh di `assets/img/`.
-- Gambar cover blog memakai Unsplash (URL eksternal) — boleh diganti gambar
-  lain yang relevan, lokal atau URL publik.
+**blog-detail.html** — cover lebar, meta penulis/tanggal/kategori berikon,
+judul `h1`, 5 paragraf pembahasan RAG, blockquote, list tips, alert, card
+artikel terkait, dan area komentar sederhana (avatar + textarea + submit).
 
-## Cara menjalankan / deploy
+**cv.html** — header profil (avatar, nama, role, kontak, lokasi, GitHub,
+LinkedIn), about, pendidikan, pengalaman (3 item), chip keahlian, 4 proyek,
+dan sertifikat. Seluruhnya memakai utility Tailwind: `flex`/`grid` + `gap`,
+spacing, breakpoint `sm:`/`md:`/`lg:`, serta `hover:` dan `transition`.
 
-- **Lokal:** buka `index.html` langsung di browser, atau gunakan ekstensi
-  **Live Server** di VSCode agar navigasi antar halaman berjalan mulus.
-- **Netlify:** drag-drop **isi folder ini** (bukan foldernya) ke
-  Netlify Drop (app.netlify.com/drop), atau hubungkan lewat Git.
+**Integrasi** — `index.html`, `blog.html`, dan `cv.html` saling tertaut dari
+navbar dan footer di setiap halaman; judul artikel di `blog.html` membuka
+`blog-detail.html`; `blog-detail.html` punya tombol kembali ke daftar blog.
+Seluruh link ditulis relatif (`index.html`, bukan `/`) supaya navigasi tetap
+jalan baik saat dibuka langsung dari folder maupun saat di-hosting.
 
-## Checklist pengumpulan
+## Yang masih perlu disesuaikan sebelum dikumpulkan
 
-- [x] Landing page AI dengan external CSS berjalan, tanpa framework
-- [x] Blog list + detail memakai Bootstrap 5 & Bootstrap Icons
-- [x] Konten blog terkait AI (6 artikel)
-- [x] CV memakai Tailwind CSS 4
-- [x] Semua halaman saling terhubung lewat navigasi
-- [x] Semua CDN eksternal sudah di-self-host (vendor/, assets/fonts/)
-- [x] Audit aksesibilitas otomatis (axe-core) lokal: 0 pelanggaran di 4 halaman
-- [x] Kontras warna teks disesuaikan agar lolos WCAG AA (>=4.5:1)
-- [x] Heading order rapi (h1->h2->h3, tidak ada yang loncat level)
-- [ ] Sudah dicek di browser sungguhan (bukan cuma dari kode) — cek tampilan
-      & console error sendiri sebelum submit final
-- [ ] Sudah dikonfirmasi URL Netlify menampilkan halaman yang benar (bukan 404)
+Bagian ini ditandai dengan komentar `<!-- GANTI: ... -->` di dalam `cv.html`:
+
+- Nama lengkap (saat ini: `Stiy`), bila berbeda dengan yang tertera di KTM
+- Nomor WhatsApp aktif
+- URL GitHub dan LinkedIn pribadi
+- Nama SMA/SMK dan tahun kelulusan
+- Avatar CV memakai SVG di `assets/img/avatar-cv.svg` — boleh diganti pas foto
+  asli (letakkan di `assets/img/`, lalu ubah `src` di `cv.html`)
+
+## Cara menjalankan
+
+- **Lokal:** buka `index.html` langsung di browser. Untuk pengalaman terbaik,
+  gunakan ekstensi **Live Server** di VS Code.
+- **Hosting statis:** unggah **isi** folder ini (bukan foldernya) agar
+  `index.html` berada di root.
+
+## Checklist
+
+- [x] Landing page AI dengan external CSS, tanpa framework apa pun
+- [x] Blog list & detail memakai Bootstrap 5 + Bootstrap Icons
+- [x] CV memakai Tailwind CSS 4 sebagai sistem styling utama
+- [x] Semantic HTML5 (`header`, `nav`, `main`, `section`, `article`, `footer`)
+- [x] Responsive di desktop dan mobile
+- [x] Tidak ada inline `style=` — seluruh styling lewat external/internal CSS
+- [x] Semua gambar lokal di `assets/img/`, tanpa dependensi URL eksternal
+- [x] Navigasi antar halaman berfungsi (link relatif), brand konsisten
+- [x] Komentar singkat di bagian penting tiap file
+- [ ] Data pribadi di `cv.html` sudah diisi (lihat daftar di atas)
+- [ ] Sudah dicek tampilannya di browser sungguhan sebelum submit

@@ -7,6 +7,8 @@
   <meta name="description" content="Artikel seputar generative AI, LLM, prompt engineering, etika AI, dan otomasi industri dari tim Aksara AI." />
 
   <!-- Bootstrap 5.3 (self-hosted, lihat folder vendor/) -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons (self-hosted) -->
   <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
@@ -64,6 +66,13 @@
     .blog-card .card-title a:hover { color: var(--gold-dark); }
     .badge-category { background-color: var(--paper-dim); color: var(--gold-dark); font-weight: 600; }
 
+    /* Utilitas kecil — dipakai menggantikan inline style agar styling tetap terpusat */
+    .hero-eyebrow { color: #f1ddb0; letter-spacing: .04em; }
+    .measure-lg { max-width: 46rem; }
+    .measure-sm { max-width: 26rem; }
+    .page-link--current { background-color: var(--ink); border-color: var(--ink); }
+    .page-link--ink { color: var(--ink); }
+
     footer.site-footer { background: var(--ink); color: #c7d3d8; }
     footer.site-footer a { color: #eae2c8; }
     footer.site-footer a:hover { color: var(--gold); }
@@ -76,7 +85,7 @@
   ====================================================== -->
   <nav class="navbar navbar-expand-lg sticky-top py-3">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2 font-display fw-bold" href="/">
+      <a class="navbar-brand d-flex align-items-center gap-2 font-display fw-bold" href="index.html">
         <span class="navbar-brand-mark">A</span> Aksara AI
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +93,7 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navMain">
         <ul class="navbar-nav align-items-lg-center gap-lg-4">
-          <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
           <li class="nav-item"><a class="btn btn-gold rounded-pill px-3" href="index.html#kontak">Konsultasi</a></li>
@@ -98,11 +107,11 @@
   ====================================================== -->
   <header class="bg-brand-hero py-5">
     <div class="container py-4">
-      <p class="text-uppercase small fw-semibold" style="color:#f1ddb0; letter-spacing:.04em;">
+      <p class="text-uppercase small fw-semibold hero-eyebrow">
         <i class="bi bi-journal-richtext me-1"></i> Blog Aksara AI
       </p>
       <h1 class="font-display fw-bold display-6 mb-3">Catatan seputar kecerdasan buatan &amp; penerapannya</h1>
-      <p class="text-muted-light mb-0" style="max-width: 46rem;">
+      <p class="text-muted-light mb-0 measure-lg">
         Kumpulan tulisan dari tim kami tentang generative AI, LLM, prompt engineering,
         etika AI, hingga cerita implementasi otomasi di industri.
       </p>
@@ -112,162 +121,165 @@
   <main class="py-5">
     <div class="container">
 
-      <h2 class="visually-hidden">Daftar artikel blog Aksara AI</h2>
+      <section aria-labelledby="judul-daftar-artikel">
+        <h2 class="visually-hidden" id="judul-daftar-artikel">Daftar artikel blog Aksara AI</h2>
 
-      <!-- Filter kategori -->
-      <div class="d-flex flex-wrap gap-2 mb-5" id="filterBar">
-        <span class="badge rounded-pill border filter-chip active px-3 py-2" data-filter="all">Semua</span>
-        <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="generative">Generative AI</span>
-        <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="ml">Machine Learning</span>
-        <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="etika">Etika AI</span>
-        <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="tools">Tools</span>
-      </div>
-
-      <!-- =====================================================
-           DAFTAR ARTIKEL
-      ====================================================== -->
-      <div class="row g-4" id="blogGrid">
-
-        <div class="col-md-6 col-lg-3 blog-item" data-category="generative">
-          <article class="blog-card card h-100 d-flex flex-column">
-            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80" alt="Ilustrasi jaringan generative AI">
-            <div class="card-body d-flex flex-column">
-              <span class="badge badge-category rounded-pill mb-2 align-self-start">
-                <i class="bi bi-stars me-1"></i> Generative AI
-              </span>
-              <h3 class="h6 card-title fw-bold">
-                <a href="blog-detail.html">Mengenal RAG: Cara LLM Menjawab dengan Data Perusahaan</a>
-              </h3>
-              <p class="small text-muted flex-grow-1">
-                Retrieval-Augmented Generation menggabungkan pencarian dokumen dan model bahasa agar jawaban chatbot lebih akurat dan relevan.
-              </p>
-              <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
-                <span><i class="bi bi-person"></i> Dinda Ayu</span>
-                <span><i class="bi bi-calendar3"></i> 12 Mar 2026</span>
-                <span><i class="bi bi-clock"></i> 6 mnt</span>
-              </div>
-            </div>
-          </article>
+        <!-- Filter kategori -->
+        <div class="d-flex flex-wrap gap-2 mb-5" id="filterBar">
+          <span class="badge rounded-pill border filter-chip active px-3 py-2" data-filter="all">Semua</span>
+          <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="generative">Generative AI</span>
+          <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="ml">Machine Learning</span>
+          <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="etika">Etika AI</span>
+          <span class="badge rounded-pill border filter-chip px-3 py-2" data-filter="tools">Tools</span>
         </div>
 
-        <div class="col-md-6 col-lg-3 blog-item" data-category="ml">
-          <article class="blog-card card h-100 d-flex flex-column">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Ilustrasi computer vision pada lini produksi">
-            <div class="card-body d-flex flex-column">
-              <span class="badge badge-category rounded-pill mb-2 align-self-start">
-                <i class="bi bi-camera me-1"></i> Computer Vision
-              </span>
-              <h3 class="h6 card-title fw-bold">
-                <a href="blog-detail.html">Computer Vision untuk Kontrol Kualitas Produk</a>
-              </h3>
-              <p class="small text-muted flex-grow-1">
-                Bagaimana kamera dan model deteksi objek membantu pabrik menyortir produk cacat lebih cepat daripada inspeksi manual.
-              </p>
-              <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
-                <span><i class="bi bi-person"></i> Raka Pratama</span>
-                <span><i class="bi bi-calendar3"></i> 2 Apr 2026</span>
-                <span><i class="bi bi-clock"></i> 5 mnt</span>
+        <!-- =====================================================
+             DAFTAR ARTIKEL
+        ====================================================== -->
+        <div class="row g-4" id="blogGrid">
+
+          <div class="col-md-6 col-lg-4 blog-item" data-category="generative">
+            <article class="blog-card card h-100 d-flex flex-column">
+              <img src="assets/img/cover-rag.svg" alt="Ilustrasi jaringan generative AI">
+              <div class="card-body d-flex flex-column">
+                <span class="badge badge-category rounded-pill mb-2 align-self-start">
+                  <i class="bi bi-stars me-1"></i> Generative AI
+                </span>
+                <h3 class="h6 card-title fw-bold">
+                  <a href="blog-detail.html">Mengenal RAG: Cara LLM Menjawab dengan Data Perusahaan</a>
+                </h3>
+                <p class="small text-muted flex-grow-1">
+                  Retrieval-Augmented Generation menggabungkan pencarian dokumen dan model bahasa agar jawaban chatbot lebih akurat dan relevan.
+                </p>
+                <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
+                  <span><i class="bi bi-person"></i> Dinda Ayu</span>
+                  <span><i class="bi bi-calendar3"></i> 12 Mar 2026</span>
+                  <span><i class="bi bi-clock"></i> 6 mnt</span>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 blog-item" data-category="ml">
+            <article class="blog-card card h-100 d-flex flex-column">
+              <img src="assets/img/cover-vision.svg" alt="Ilustrasi computer vision pada lini produksi">
+              <div class="card-body d-flex flex-column">
+                <span class="badge badge-category rounded-pill mb-2 align-self-start">
+                  <i class="bi bi-camera me-1"></i> Computer Vision
+                </span>
+                <h3 class="h6 card-title fw-bold">
+                  <a href="blog-detail.html">Computer Vision untuk Kontrol Kualitas Produk</a>
+                </h3>
+                <p class="small text-muted flex-grow-1">
+                  Bagaimana kamera dan model deteksi objek membantu pabrik menyortir produk cacat lebih cepat daripada inspeksi manual.
+                </p>
+                <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
+                  <span><i class="bi bi-person"></i> Raka Pratama</span>
+                  <span><i class="bi bi-calendar3"></i> 2 Apr 2026</span>
+                  <span><i class="bi bi-clock"></i> 5 mnt</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 blog-item" data-category="etika">
+            <article class="blog-card card h-100 d-flex flex-column">
+              <img src="assets/img/cover-etika.svg" alt="Ilustrasi etika dalam kecerdasan buatan">
+              <div class="card-body d-flex flex-column">
+                <span class="badge badge-category rounded-pill mb-2 align-self-start">
+                  <i class="bi bi-shield-check me-1"></i> Etika AI
+                </span>
+                <h3 class="h6 card-title fw-bold">
+                  <a href="blog-detail.html">Bias pada Model AI: Mengapa Data Latih Itu Penting</a>
+                </h3>
+                <p class="small text-muted flex-grow-1">
+                  Model yang dilatih dengan data tidak seimbang bisa menghasilkan keputusan yang tidak adil. Berikut cara mengenalinya sejak awal.
+                </p>
+                <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
+                  <span><i class="bi bi-person"></i> Melati Sari</span>
+                  <span><i class="bi bi-calendar3"></i> 18 Apr 2026</span>
+                  <span><i class="bi bi-clock"></i> 7 mnt</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 blog-item" data-category="tools">
+            <article class="blog-card card h-100 d-flex flex-column">
+              <img src="assets/img/cover-mlops.svg" alt="Ilustrasi tim mengelola pipeline MLOps">
+              <div class="card-body d-flex flex-column">
+                <span class="badge badge-category rounded-pill mb-2 align-self-start">
+                  <i class="bi bi-tools me-1"></i> Tools
+                </span>
+                <h3 class="h6 card-title fw-bold">
+                  <a href="blog-detail.html">Memulai MLOps: Dari Notebook ke Sistem Produksi</a>
+                </h3>
+                <p class="small text-muted flex-grow-1">
+                  Tiga hal yang perlu disiapkan tim sebelum model machine learning dipindahkan dari eksperimen ke lingkungan produksi.
+                </p>
+                <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
+                  <span><i class="bi bi-person"></i> Yusuf Hamdi</span>
+                  <span><i class="bi bi-calendar3"></i> 5 Mei 2026</span>
+                  <span><i class="bi bi-clock"></i> 8 mnt</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 blog-item" data-category="generative">
+            <article class="blog-card card h-100 d-flex flex-column">
+              <img src="assets/img/cover-prompt.svg" alt="Ilustrasi menulis prompt untuk model bahasa">
+              <div class="card-body d-flex flex-column">
+                <span class="badge badge-category rounded-pill mb-2 align-self-start">
+                  <i class="bi bi-chat-dots me-1"></i> Prompt Engineering
+                </span>
+                <h3 class="h6 card-title fw-bold">
+                  <a href="blog-detail.html">5 Pola Prompt yang Membuat Chatbot Lebih Konsisten</a>
+                </h3>
+                <p class="small text-muted flex-grow-1">
+                  Instruksi sistem yang jelas dan contoh percakapan membuat chatbot lebih patuh pada gaya bahasa brand Anda.
+                </p>
+                <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
+                  <span><i class="bi bi-person"></i> Dinda Ayu</span>
+                  <span><i class="bi bi-calendar3"></i> 21 Mei 2026</span>
+                  <span><i class="bi bi-clock"></i> 4 mnt</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 blog-item" data-category="ml">
+            <article class="blog-card card h-100 d-flex flex-column">
+              <img src="assets/img/cover-prediksi.svg" alt="Ilustrasi grafik analitik prediktif">
+              <div class="card-body d-flex flex-column">
+                <span class="badge badge-category rounded-pill mb-2 align-self-start">
+                  <i class="bi bi-graph-up-arrow me-1"></i> Machine Learning
+                </span>
+                <h3 class="h6 card-title fw-bold">
+                  <a href="blog-detail.html">Menebak Permintaan Stok dengan Analitik Prediktif</a>
+                </h3>
+                <p class="small text-muted flex-grow-1">
+                  Studi kasus sederhana tentang bagaimana toko ritel mengurangi kelebihan stok menggunakan model prediksi permintaan.
+                </p>
+                <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
+                  <span><i class="bi bi-person"></i> Raka Pratama</span>
+                  <span><i class="bi bi-calendar3"></i> 30 Mei 2026</span>
+                  <span><i class="bi bi-clock"></i> 6 mnt</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
         </div>
 
-        <div class="col-md-6 col-lg-3 blog-item" data-category="etika">
-          <article class="blog-card card h-100 d-flex flex-column">
-            <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=600&q=80" alt="Ilustrasi etika dalam kecerdasan buatan">
-            <div class="card-body d-flex flex-column">
-              <span class="badge badge-category rounded-pill mb-2 align-self-start">
-                <i class="bi bi-shield-check me-1"></i> Etika AI
-              </span>
-              <h3 class="h6 card-title fw-bold">
-                <a href="blog-detail.html">Bias pada Model AI: Mengapa Data Latih Itu Penting</a>
-              </h3>
-              <p class="small text-muted flex-grow-1">
-                Model yang dilatih dengan data tidak seimbang bisa menghasilkan keputusan yang tidak adil. Berikut cara mengenalinya sejak awal.
-              </p>
-              <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
-                <span><i class="bi bi-person"></i> Melati Sari</span>
-                <span><i class="bi bi-calendar3"></i> 18 Apr 2026</span>
-                <span><i class="bi bi-clock"></i> 7 mnt</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-3 blog-item" data-category="tools">
-          <article class="blog-card card h-100 d-flex flex-column">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Ilustrasi tim mengelola pipeline MLOps">
-            <div class="card-body d-flex flex-column">
-              <span class="badge badge-category rounded-pill mb-2 align-self-start">
-                <i class="bi bi-tools me-1"></i> Tools
-              </span>
-              <h3 class="h6 card-title fw-bold">
-                <a href="blog-detail.html">Memulai MLOps: Dari Notebook ke Sistem Produksi</a>
-              </h3>
-              <p class="small text-muted flex-grow-1">
-                Tiga hal yang perlu disiapkan tim sebelum model machine learning dipindahkan dari eksperimen ke lingkungan produksi.
-              </p>
-              <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
-                <span><i class="bi bi-person"></i> Yusuf Hamdi</span>
-                <span><i class="bi bi-calendar3"></i> 5 Mei 2026</span>
-                <span><i class="bi bi-clock"></i> 8 mnt</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-3 blog-item" data-category="generative">
-          <article class="blog-card card h-100 d-flex flex-column">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Ilustrasi menulis prompt untuk model bahasa">
-            <div class="card-body d-flex flex-column">
-              <span class="badge badge-category rounded-pill mb-2 align-self-start">
-                <i class="bi bi-chat-dots me-1"></i> Prompt Engineering
-              </span>
-              <h3 class="h6 card-title fw-bold">
-                <a href="blog-detail.html">5 Pola Prompt yang Membuat Chatbot Lebih Konsisten</a>
-              </h3>
-              <p class="small text-muted flex-grow-1">
-                Instruksi sistem yang jelas dan contoh percakapan membuat chatbot lebih patuh pada gaya bahasa brand Anda.
-              </p>
-              <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
-                <span><i class="bi bi-person"></i> Dinda Ayu</span>
-                <span><i class="bi bi-calendar3"></i> 21 Mei 2026</span>
-                <span><i class="bi bi-clock"></i> 4 mnt</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-3 blog-item" data-category="ml">
-          <article class="blog-card card h-100 d-flex flex-column">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Ilustrasi grafik analitik prediktif">
-            <div class="card-body d-flex flex-column">
-              <span class="badge badge-category rounded-pill mb-2 align-self-start">
-                <i class="bi bi-graph-up-arrow me-1"></i> Machine Learning
-              </span>
-              <h3 class="h6 card-title fw-bold">
-                <a href="blog-detail.html">Menebak Permintaan Stok dengan Analitik Prediktif</a>
-              </h3>
-              <p class="small text-muted flex-grow-1">
-                Studi kasus sederhana tentang bagaimana toko ritel mengurangi kelebihan stok menggunakan model prediksi permintaan.
-              </p>
-              <div class="d-flex align-items-center gap-3 small text-muted mt-2 pt-2 border-top">
-                <span><i class="bi bi-person"></i> Raka Pratama</span>
-                <span><i class="bi bi-calendar3"></i> 30 Mei 2026</span>
-                <span><i class="bi bi-clock"></i> 6 mnt</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-      </div>
+      </section>
 
       <nav aria-label="Navigasi halaman blog" class="mt-5">
         <ul class="pagination justify-content-center">
           <li class="page-item disabled"><span class="page-link" aria-hidden="true"><i class="bi bi-arrow-left"></i></span></li>
-          <li class="page-item active"><span class="page-link" style="background-color:var(--ink); border-color:var(--ink);">1<span class="visually-hidden">(halaman saat ini)</span></span></li>
-          <li class="page-item"><a class="page-link" href="#" style="color:var(--ink);">2</a></li>
-          <li class="page-item"><a class="page-link" href="#" style="color:var(--ink);" aria-label="Halaman berikutnya"><i class="bi bi-arrow-right"></i></a></li>
+          <li class="page-item active"><span class="page-link page-link--current">1<span class="visually-hidden">(halaman saat ini)</span></span></li>
+          <li class="page-item"><a class="page-link page-link--ink" href="#">2</a></li>
+          <li class="page-item"><a class="page-link page-link--ink" href="#" aria-label="Halaman berikutnya"><i class="bi bi-arrow-right"></i></a></li>
         </ul>
       </nav>
 
@@ -281,10 +293,10 @@
     <div class="container d-flex flex-column flex-md-row justify-content-between gap-4">
       <div>
         <p class="fs-5 font-display fw-bold text-white mb-2"><i class="bi bi-braces-asterisk"></i> Aksara AI</p>
-        <p class="small mb-0" style="max-width: 26rem;">Studio kecerdasan buatan terapan untuk bisnis di Indonesia.</p>
+        <p class="small mb-0 measure-sm">Studio kecerdasan buatan terapan untuk bisnis di Indonesia.</p>
       </div>
       <div class="d-flex flex-wrap gap-4 small">
-        <a href="/" class="text-decoration-none">Beranda</a>
+        <a href="index.html" class="text-decoration-none">Beranda</a>
         <a href="blog.html" class="text-decoration-none">Blog</a>
         <a href="cv.html" class="text-decoration-none">CV</a>
         <a href="index.html#kontak" class="text-decoration-none">Kontak</a>
