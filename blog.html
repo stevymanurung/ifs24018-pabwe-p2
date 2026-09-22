@@ -14,34 +14,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Google Font (di-self-host, subset latin saja) -->
   <link rel="stylesheet" href="assets/css/fonts.css">
+  <!-- Variabel warna, komponen brand & footer bersama blog.html + blog-detail.html -->
+  <link rel="stylesheet" href="assets/css/blog-theme.css">
 
+  <!-- Style di bawah ini KHUSUS untuk blog.html saja (tidak dipakai halaman
+       lain), jadi tetap ditulis inline di sini. Variabel warna dan komponen
+       yang dipakai bersama halaman lain sudah dipindah ke assets/css/blog-theme.css -->
   <style>
-    :root {
-      --ink: #10202b;
-      --gold: #c98a2c;
-      --gold-dark: #8a5c1c;
-      --gold-darker: #6b4515;
-      --paper: #faf7ef;
-      --paper-dim: #efe8d4;
-    }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-    }
-    .font-display { font-family: 'Fraunces', serif; }
-    .navbar-brand-mark {
-      width: 34px; height: 34px; border-radius: 9px;
-      background: linear-gradient(155deg, var(--ink), #24404f);
-      color: #f1ddb0; display: inline-flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-weight: 700;
-    }
-    .navbar { background: rgba(250,247,239,.92) !important; backdrop-filter: blur(8px); border-bottom: 1px solid #ddd3ba; }
     .nav-link.active { color: var(--gold-dark) !important; font-weight: 600; }
     .bg-brand-hero { background: var(--ink); color: var(--paper); }
     .bg-brand-hero .text-muted-light { color: #c7d3d8 !important; }
-    .btn-gold { background-color: var(--gold-dark); border-color: var(--gold-dark); color: #fff; }
-    .btn-gold:hover { background-color: var(--gold-darker); border-color: var(--gold-darker); color: #fff; }
     .btn-outline-gold { border-color: var(--gold); color: var(--gold-dark); }
     .btn-outline-gold:hover { background-color: var(--gold); color: #fff; }
 
@@ -64,18 +46,12 @@
     .blog-card img { height: 190px; object-fit: cover; }
     .blog-card .card-title a { color: var(--ink); text-decoration: none; }
     .blog-card .card-title a:hover { color: var(--gold-dark); }
-    .badge-category { background-color: var(--paper-dim); color: var(--gold-dark); font-weight: 600; }
 
     /* Utilitas kecil — dipakai menggantikan inline style agar styling tetap terpusat */
     .hero-eyebrow { color: #f1ddb0; letter-spacing: .04em; }
     .measure-lg { max-width: 46rem; }
-    .measure-sm { max-width: 26rem; }
     .page-link--current { background-color: var(--ink); border-color: var(--ink); }
     .page-link--ink { color: var(--ink); }
-
-    footer.site-footer { background: var(--ink); color: #c7d3d8; }
-    footer.site-footer a { color: #eae2c8; }
-    footer.site-footer a:hover { color: var(--gold); }
   </style>
 </head>
 <body>
@@ -138,6 +114,10 @@
         ====================================================== -->
         <div class="row g-4" id="blogGrid">
 
+          <!-- Konvensi penamaan aset: assets/img/cover-<topik>.svg untuk thumbnail
+               kartu di halaman ini, assets/img/cover-<topik>-wide.svg untuk
+               banner hero di blog-detail.html (rasio lebih lebar). Setiap
+               artikel punya sepasang aset dengan konvensi yang sama. -->
           <div class="col-md-6 col-lg-4 blog-item" data-category="generative">
             <article class="blog-card card h-100 d-flex flex-column">
               <img src="assets/img/cover-rag.svg" alt="Ilustrasi jaringan generative AI">

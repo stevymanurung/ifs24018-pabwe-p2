@@ -11,30 +11,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="assets/css/fonts.css">
+  <!-- Variabel warna, komponen brand & footer bersama blog.html + blog-detail.html -->
+  <link rel="stylesheet" href="assets/css/blog-theme.css">
 
+  <!-- Style di bawah ini KHUSUS untuk blog-detail.html saja. Variabel warna
+       dan komponen yang dipakai bersama halaman lain sudah dipindah ke
+       assets/css/blog-theme.css -->
   <style>
-    :root {
-      --ink: #10202b;
-      --gold: #c98a2c;
-      --gold-dark: #8a5c1c;
-      --gold-darker: #6b4515;
-      --paper: #faf7ef;
-      --paper-dim: #efe8d4;
-    }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--paper); color: var(--ink); }
     .breadcrumb-item a { color: var(--gold-dark); }
     .breadcrumb-item a:hover { color: var(--gold-darker); }
     .breadcrumb-item.active { color: var(--ink-soft, #47606d); }
-    .font-display { font-family: 'Fraunces', serif; }
-    .navbar-brand-mark {
-      width: 34px; height: 34px; border-radius: 9px;
-      background: linear-gradient(155deg, var(--ink), #24404f);
-      color: #f1ddb0; display: inline-flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif; font-weight: 700;
-    }
-    .navbar { background: rgba(250,247,239,.92) !important; backdrop-filter: blur(8px); border-bottom: 1px solid #ddd3ba; }
-    .btn-gold { background-color: var(--gold-dark); border-color: var(--gold-dark); color: #fff; }
-    .btn-gold:hover { background-color: var(--gold-darker); border-color: var(--gold-darker); color: #fff; }
 
     .cover-wrap { max-height: 420px; overflow: hidden; border-radius: 18px; }
     .cover-wrap img { width: 100%; object-fit: cover; height: 100%; }
@@ -59,14 +45,8 @@
     }
     /* Utilitas kecil — pengganti inline style agar styling tetap terpusat */
     .container--article { max-width: 900px; }
-    .measure-sm { max-width: 26rem; }
     .text-brand { color: var(--gold-dark) !important; }
-    .badge-category { background-color: var(--paper-dim); color: var(--gold-dark); font-weight: 600; }
     .alert-brand { background: var(--paper-dim); border: none; color: var(--ink); }
-
-    footer.site-footer { background: var(--ink); color: #c7d3d8; }
-    footer.site-footer a { color: #eae2c8; }
-    footer.site-footer a:hover { color: var(--gold); }
   </style>
 </head>
 <body>
@@ -122,6 +102,8 @@
             <span><i class="bi bi-tag me-1"></i> LLM, RAG, Chatbot</span>
           </div>
 
+          <!-- Versi "-wide" dari cover-rag.svg (lihat blog.html): rasio lebih
+               lebar khusus untuk banner hero di halaman detail artikel -->
           <div class="cover-wrap mb-4">
             <img src="assets/img/cover-rag-wide.svg" alt="Ilustrasi jaringan generative AI">
           </div>
