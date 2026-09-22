@@ -127,61 +127,61 @@
           </div>
         </header>
 
-          <p>
-            Banyak perusahaan mulai memakai chatbot berbasis Large Language Model (LLM)
-            untuk menjawab pertanyaan pelanggan maupun karyawan internal. Masalahnya,
-            LLM hanya mengenal informasi umum dari data pelatihannya, sehingga sering
-            tidak tahu kebijakan cuti terbaru, katalog produk yang baru diperbarui,
-            atau detail kontrak yang sifatnya spesifik untuk perusahaan tersebut.
-            Retrieval-Augmented Generation (RAG) hadir untuk menutup celah ini.
-          </p>
+        <p>
+          Banyak perusahaan mulai memakai chatbot berbasis Large Language Model (LLM)
+          untuk menjawab pertanyaan pelanggan maupun karyawan internal. Masalahnya,
+          LLM hanya mengenal informasi umum dari data pelatihannya, sehingga sering
+          tidak tahu kebijakan cuti terbaru, katalog produk yang baru diperbarui,
+          atau detail kontrak yang sifatnya spesifik untuk perusahaan tersebut.
+          Retrieval-Augmented Generation (RAG) hadir untuk menutup celah ini.
+        </p>
 
-          <p>
-            Secara sederhana, RAG bekerja dengan dua langkah utama. Pertama, sistem
-            mencari potongan dokumen yang paling relevan dengan pertanyaan pengguna
-            dari basis pengetahuan perusahaan — bisa berupa SOP, FAQ, atau katalog
-            produk yang sudah diubah menjadi representasi vektor. Kedua, potongan
-            dokumen tersebut disisipkan ke dalam prompt sebagai konteks tambahan
-            sebelum LLM menyusun jawaban akhir. Dengan begitu, jawaban yang dihasilkan
-            didasarkan pada data yang benar-benar dimiliki perusahaan, bukan sekadar
-            tebakan dari pengetahuan umum model.
-          </p>
+        <p>
+          Secara sederhana, RAG bekerja dengan dua langkah utama. Pertama, sistem
+          mencari potongan dokumen yang paling relevan dengan pertanyaan pengguna
+          dari basis pengetahuan perusahaan — bisa berupa SOP, FAQ, atau katalog
+          produk yang sudah diubah menjadi representasi vektor. Kedua, potongan
+          dokumen tersebut disisipkan ke dalam prompt sebagai konteks tambahan
+          sebelum LLM menyusun jawaban akhir. Dengan begitu, jawaban yang dihasilkan
+          didasarkan pada data yang benar-benar dimiliki perusahaan, bukan sekadar
+          tebakan dari pengetahuan umum model.
+        </p>
 
-          <blockquote>
-            "RAG tidak membuat model menjadi lebih pintar secara instan — RAG membuat
-            model punya akses ke sumber informasi yang tepat pada saat yang tepat."
-          </blockquote>
+        <blockquote>
+          "RAG tidak membuat model menjadi lebih pintar secara instan — RAG membuat
+          model punya akses ke sumber informasi yang tepat pada saat yang tepat."
+        </blockquote>
 
-          <p>
-            Pendekatan ini juga memudahkan proses pembaruan pengetahuan. Ketika ada
-            kebijakan baru atau produk baru, tim cukup memperbarui basis dokumen
-            tanpa perlu melatih ulang model dari awal. Hal ini membuat RAG menjadi
-            pilihan yang jauh lebih murah dan cepat dibandingkan fine-tuning penuh,
-            terutama untuk perusahaan yang informasinya sering berubah.
-          </p>
+        <p>
+          Pendekatan ini juga memudahkan proses pembaruan pengetahuan. Ketika ada
+          kebijakan baru atau produk baru, tim cukup memperbarui basis dokumen
+          tanpa perlu melatih ulang model dari awal. Hal ini membuat RAG menjadi
+          pilihan yang jauh lebih murah dan cepat dibandingkan fine-tuning penuh,
+          terutama untuk perusahaan yang informasinya sering berubah.
+        </p>
 
-          <h2 class="h4 fw-bold mt-4 mb-3">Beberapa hal yang perlu diperhatikan</h2>
-          <ul class="mb-4">
-            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Kualitas jawaban RAG sangat bergantung pada kualitas dan kerapian dokumen sumber.</li>
-            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Ukuran potongan dokumen (chunk) perlu diuji agar tidak terlalu pendek atau terlalu panjang.</li>
-            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Perlu mekanisme untuk menandai jika sistem tidak menemukan dokumen relevan, agar chatbot tidak mengarang jawaban.</li>
-          </ul>
+        <h2 class="h4 fw-bold mt-4 mb-3">Beberapa hal yang perlu diperhatikan</h2>
+        <ul class="mb-4">
+          <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Kualitas jawaban RAG sangat bergantung pada kualitas dan kerapian dokumen sumber.</li>
+          <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Ukuran potongan dokumen (chunk) perlu diuji agar tidak terlalu pendek atau terlalu panjang.</li>
+          <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Perlu mekanisme untuk menandai jika sistem tidak menemukan dokumen relevan, agar chatbot tidak mengarang jawaban.</li>
+        </ul>
 
-          <div class="alert alert-brand d-flex align-items-start gap-2">
-            <i class="bi bi-info-circle-fill fs-5 text-brand"></i>
-            <div>
-              <strong>Catatan:</strong> RAG bukan solusi ajaib untuk semua kebutuhan AI.
-              Untuk tugas yang membutuhkan penalaran kompleks di luar pencarian dokumen,
-              kombinasi RAG dengan agen atau alat tambahan biasanya diperlukan.
-            </div>
+        <div class="alert alert-brand d-flex align-items-start gap-2">
+          <i class="bi bi-info-circle-fill fs-5 text-brand"></i>
+          <div>
+            <strong>Catatan:</strong> RAG bukan solusi ajaib untuk semua kebutuhan AI.
+            Untuk tugas yang membutuhkan penalaran kompleks di luar pencarian dokumen,
+            kombinasi RAG dengan agen atau alat tambahan biasanya diperlukan.
           </div>
+        </div>
 
-          <p>
-            Bagi perusahaan yang baru memulai, langkah paling praktis adalah menguji
-            RAG pada satu use case kecil terlebih dahulu — misalnya menjawab pertanyaan
-            seputar SOP internal — sebelum memperluasnya ke seluruh basis pengetahuan
-            perusahaan.
-          </p>
+        <p>
+          Bagi perusahaan yang baru memulai, langkah paling praktis adalah menguji
+          RAG pada satu use case kecil terlebih dahulu — misalnya menjawab pertanyaan
+          seputar SOP internal — sebelum memperluasnya ke seluruh basis pengetahuan
+          perusahaan.
+        </p>
       </article>
 
       <p class="mt-4">
